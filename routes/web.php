@@ -29,4 +29,7 @@ $router->group(['prefix'=>'api/author'], function () use ($router) {
 
 $router->group(['prefix'=>'api/book'], function () use ($router) {
     $router->get('/','BookController\Book@getBooks');
+    $router->get('/{id}','BookController\Book@getBookByID');
+    $router->post('/','BookController\Book@storeBook');
+    $router->patch('/{id}','BookController\Book@updateBook');
 });

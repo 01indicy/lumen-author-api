@@ -41,6 +41,6 @@ class Author extends \App\Http\Controllers\Controller {
         if (!$authorInfo) return response()->json(['error' => 'AuthorController not found'], 404);
 
         $authorInfo->delete();
-        return response()->json(['message' => 'AuthorController deleted']);
+        return response()->json(['message' => 'Author deleted']);
     }
 }
