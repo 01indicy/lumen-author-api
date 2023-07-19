@@ -15,7 +15,10 @@ class Book extends \App\Http\Controllers\Controller{
     }
 
     function getBookByID($id): \Illuminate\Http\JsonResponse {
-        $book = BookModel::with('Authors')->find($id);
+        $book = BookModel::with(['Authors'=>function($query) {
+            $query->select('id','name','email');
+        }])->select('id','book_name','price')->find($id);
+
         if(!$book) return response()->json(['message'=>'Book not found'],404);
         return response()->json(['data'=>$book]);
     }

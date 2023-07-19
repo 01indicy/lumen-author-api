@@ -33,3 +33,8 @@ $router->group(['prefix'=>'api/book'], function () use ($router) {
     $router->post('/','BookController\Book@storeBook');
     $router->patch('/{id}','BookController\Book@updateBook');
 });
+
+$router->group(['prefix'=>'api/comment'], function () use ($router) {
+    $router->get('/','CommentController\Comment@getComment');
+    $router->post('/','CommentController\Comment@storeComment');
+});
